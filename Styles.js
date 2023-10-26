@@ -60,48 +60,35 @@
 //     alignSelf: 'center',
 //   },
 // });
-// import {StyleSheet} from 'react-native';
-// export const Styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'space-evenly',
-//     // alignItems: 'center',
-//     padding: 20,
-//     backgroundColor: 'white',
-//   },
-//   container1: {},
-// biohacker: {
-//   textAlign: 'center',
-//   fontFamily: 'poppins',
-//   fontSize: 45,
-//   color: 'rgba(0, 25, 101, 1)',
-// },
+import {StyleSheet} from 'react-native';
+export const Styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'space-evenly',
+  },
+  container: {
+    flex: 0.2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  biohacker: {
+    fontSize: 35,
+    color: 'blue',
+    fontFamily: 'poppins',
+    marginBottom: 60,
+  },
 
-// login: {},
+  loginContainer: {
+    flex: 0.5,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  login: {},
+  email: {},
+  pass: {},
+  button: {},
+  loginContainer: {},
 
-// email: {
-//   backgroundColor: 'rgba(245, 245, 245, 1)',
-//   paddingLeft: 10,
-// },
-
-// pass: {
-//     backgroundColor: 'rgba(245, 245, 245, 1)',
-//     flexDirection: 'row',
-//     paddingLeft: 10,
-//     marginBottom: -30,
-//     justifyContent: 'space-between',
-//   },
-//   account: {
-//     textAlign: 'center',
-//     color: 'rgba(0, 25, 101, 1)',
-//   },
-//   Signup: {
-//     color: 'rgba(79, 168, 216, 1)',
-//   },
-//   logo: {
-//     flexDirection: 'row',
-//   },
-//   btn: {
-//     Color: 'red',
-//   },
-// });
+  down: {gap: 30},
+});

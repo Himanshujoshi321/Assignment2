@@ -7,28 +7,28 @@
 
 // import React from 'react';
 // import type {PropsWithChildren} from 'react';
-import {
-  Button,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  useColorScheme,
-  View,
-  Alert,
-  Pressable,
-} from 'react-native';
+// import {
+//   Button,
+//   Image,
+//   SafeAreaView,
+//   ScrollView,
+//   StatusBar,
+//   StyleSheet,
+//   Text,
+//   TextInput,
+//   useColorScheme,
+//   View,
+//   Alert,
+//   Pressable,
+// } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// import {
+//   Colors,
+//   DebugInstructions,
+//   Header,
+//   LearnMoreLinks,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
 
 // type SectionProps = PropsWithChildren<{
 //   title: string;
@@ -322,64 +322,101 @@ import {
 //   );
 // }
 
-// import React, {useState} from 'react';
-// import {View, Text} from 'react-native';
-// import {Styles} from './Styles';
+import {
+  Alert,
+  Text,
+  TextInput,
+  View,
+  Button,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
+import {Styles} from './Styles';
 
-// function App() {
-//   // const [name, setName] = useState('');
-//   return (
-//     <View style={Styles.container}>
-//       <View style={Styles.container1}>
-//         <Text style={Styles.biohacker}>BIOHACKER</Text>
-//       </View>
-//       <View style={Styles.login}>
-//         <Text style={{fontSize: 40, color: 'darkblue', textAlign: 'center'}}>
-//           Login
-//         </Text>
-//   <Text style={{color: 'rgba(72, 72, 72, 1)', textAlign: 'center'}}>
-//     Login To Your Account
-//   </Text>
-// </View>
+function App() {
+  const [email, setEmail] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  // const [] = useState('');
 
-// <View>
-//   <View style={{justifyContent: 'space-between', gap: 18}}>
-//     <View>
-//       <TextInput
-//         placeholder="Enter Your Email"
-//         style={Styles.email}></TextInput>
-//     </View>
-//     <View style={Styles.pass}>
-//       <TextInput
-//         placeholder="Password"
-//         textContentType="password"
+  function showDetails() {
+    Alert.alert('Your Details', 'Email: ' + email + '\n Password' + password);
+  }
 
-//         </Text>
-//       </View>
-//       <View style={Styles.btn}>
-//         <Button
-//           title="Login"
-//           color={'rgba(0, 25, 101, 1)'}
-//           onPress={() => Alert.alert('Login')}
-//         />
-//       </View>
-//       <View>
-//         <Text style={Styles.account}>
-//           If you don't have an account?{' '}
-//           <Text style={Styles.Signup}> Sign up</Text>
-//         </Text>
-//       </View>
-//     </View>
-//   );
-// }
+  function togglePassword() {
+    setShowPassword(!showPassword);
+  }
 
-// import {Styles} from './Styles1';
+  return (
+    <View style={Styles.main}>
+      <View style={Styles.container}>
+        <Text style={Styles.biohacker}>BIOHACKER</Text>
+      </View>
+      <View style={Styles.loginContainer}>
+        <View style={Styles.login}></View>
+        <Text style={{fontSize: 45, color: 'blue', textAlign: 'center'}}>
+          Login
+        </Text>
+        <Text
+          style={{
+            fontSize: 13,
+            color: 'rgba(72, 72, 72, 1)',
+            textAlign: 'center',
+          }}>
+          Login to your account
+        </Text>
+        <View>
+          <TextInput
+            onChangeText={text => setEmail(text)}
+            placeholder="Enter your email"
+            style={Styles.email}
+          />
+        </View>
+        <View>
+          <TextInput
+            onChangeText={text => setPassword(text)}
+            placeholder="Enter your password"
+            secureTextEntry={!showPassword}
+            style={Styles.pass}
+          />
+          <TouchableOpacity onPress={togglePassword}>
+            <Image
+              style={{
+                flexDirection: 'row',
 
-// function App() {
-
-//   return (
-
-//   ) ;
-
-// };
-// export default App;
+                // flex: 0.1,
+                // position: 'absolute',
+                // left: 320,
+                // top: 10,
+                // height: 20,
+                // width: 20,
+              }}
+              source={
+                showPassword
+                  ? require('./Images/eye.png')
+                  : require('./Images/eye.png')
+              }
+            />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={{textAlign: 'right'}}>Forgot Password</Text>
+        </View>
+      </View>
+      {/* <View style={Styles.button}></View> */}
+      <View style={Styles.down}>
+        <View>
+          <Button onPress={showDetails} title="Login" color="#001965" />
+        </View>
+        <View>
+          <Text style={{color: 'rgba(0, 25, 101, 1)', textAlign: 'center'}}>
+            If You Dont Have an Account?{' '}
+            <Text style={{color: 'rgba(79,168,216,1)'}}>SignUp</Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+export default App;
